@@ -44,8 +44,10 @@ jobs:
 
       - name: Tag Docker image
         run: |
+          docker tag real-world-devops-app:${{ github.sha }} hrushikreddy/real-world-devops-app:latest
           docker tag real-world-devops-app:${{ github.sha }} hrushikreddy/real-world-devops-app:${{ github.sha }}
 
       - name: Push Docker image
         run: |
+          docker push hrushikreddy/real-world-devops-app:latest
           docker push hrushikreddy/real-world-devops-app:${{ github.sha }}
